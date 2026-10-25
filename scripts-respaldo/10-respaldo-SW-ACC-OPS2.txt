@@ -1,0 +1,22 @@
+! ==================================================================
+! Script de respaldo de configuracion - SW-ACC-OPS2
+! Switch de acceso (2960)
+! Proyecto ACSERE-2026 - Redes I Grupo II
+! Servidor TFTP: SRV-FTP-TFTP 172.16.4.73 (Services > TFTP = On)
+! Alcance al servidor: VLAN 99 172.16.4.174, gateway 172.16.4.161
+!
+! Uso: entrar a SW-ACC-OPS2 > CLI, escribir "enable" (clave: class) y pegar
+! TODO lo que esta debajo de la linea "INICIO". Debe pegarse en modo
+! privilegiado (SW-ACC-OPS2#), no en modo configuracion.
+! Las lineas que siguen a cada "copy" son las respuestas a las
+! preguntas del IOS (direccion del servidor y nombre del archivo).
+! ==================================================================
+! ---------------------------- INICIO ------------------------------
+ping 172.16.4.73
+write memory
+copy running-config tftp:
+172.16.4.73
+SW-ACC-OPS2-confg
+copy startup-config tftp:
+172.16.4.73
+SW-ACC-OPS2-startup-confg
