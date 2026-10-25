@@ -1,0 +1,21 @@
+! ==================================================================
+! (Opcional) Respaldo de la IMAGEN IOS por TFTP
+! El enunciado menciona "respaldo de configuraciones e imagenes de IOS".
+! Hacerlo en al menos un router y un switch para la evidencia.
+! ==================================================================
+! 1. Ver el nombre exacto de la imagen:
+show flash:
+!
+! 2. Copiarla al servidor (respuestas en las lineas siguientes):
+!    copy flash: tftp:
+!    <nombre del .bin que mostro show flash>
+!    172.16.4.73
+!    <Enter para aceptar el mismo nombre>
+!
+! Ejemplo tipico en un 2960 de Packet Tracer:
+copy flash: tftp:
+2960-lanbasek9-mz.150-2.SE4.bin
+172.16.4.73
+
+!
+! En SRV-FTP-TFTP > Services > TFTP aparecera el archivo .bin.

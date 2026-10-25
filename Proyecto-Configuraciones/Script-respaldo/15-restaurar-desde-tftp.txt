@@ -1,0 +1,26 @@
+! ==================================================================
+! Script de RESTAURACION desde TFTP (cualquier equipo)
+! Proyecto ACSERE-2026 - Redes I Grupo II
+!
+! Cambiar NOMBRE-EQUIPO por el hostname (ej. R-NORTE, SW-ACC-FIN).
+! Se usa cuando un equipo perdio su configuracion o para demostrar
+! en la presentacion que el respaldo sirve.
+!
+! IMPORTANTE: un equipo borrado no tiene IP, asi que antes de
+! restaurar hay que darle lo minimo para llegar a 172.16.4.73:
+!   - Router: IP de su interfaz hacia la red + OSPF o una ruta estatica.
+!   - Switch 2960: VLAN 99 con su IP, ip default-gateway y su troncal.
+! ==================================================================
+! ---------------------------- INICIO ------------------------------
+ping 172.16.4.73
+copy tftp: running-config
+172.16.4.73
+NOMBRE-EQUIPO-confg
+running-config
+write memory
+!
+! Verificacion:
+!   show running-config
+!   show ip interface brief
+!   show ip ospf neighbor        (routers / MLS)
+!   show interfaces trunk        (switches)

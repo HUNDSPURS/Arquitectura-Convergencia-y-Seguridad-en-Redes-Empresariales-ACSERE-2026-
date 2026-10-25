@@ -1,0 +1,43 @@
+! ==================================================================
+! Script de respaldo de configuracion - ISP
+! Router del proveedor (Internet simulada, loopback 8.8.8.8)
+! Proyecto ACSERE-2026 - Redes I Grupo II
+! Servidor TFTP: SRV-FTP-TFTP 172.16.4.73 (Services > TFTP = On)
+! Alcance al servidor: Solo si se abre temporalmente ACL-INTERNET-IN en R-CENTRAL (ver PASO A)
+!
+! Uso: entrar a ISP > CLI, escribir "enable" (clave: class) y pegar
+! TODO lo que esta debajo de la linea "INICIO". Debe pegarse en modo
+! privilegiado (ISP#), no en modo configuracion.
+! Las lineas que siguen a cada "copy" son las respuestas a las
+! preguntas del IOS (direccion del servidor y nombre del archivo).
+! ==================================================================
+!
+! ISP esta FUERA de la red: ACL-INTERNET-IN (entrada en Se0/2/0 de
+! R-CENTRAL) bloquea el TFTP que llega desde 172.16.255.14. Por eso
+! este script tiene tres pasos.
+!
+! ---------- PASO A: en R-CENTRAL (modo privilegiado) --------------
+configure terminal
+ip access-list extended ACL-INTERNET-IN
+ 5 permit udp host 172.16.255.14 host 172.16.4.73
+end
+!
+! ---------- PASO B: en ISP (modo privilegiado) --------------------
+ping 172.16.4.73
+write memory
+copy running-config tftp:
+172.16.4.73
+ISP-confg
+copy startup-config tftp:
+172.16.4.73
+ISP-startup-confg
+!
+! ---------- PASO C: en R-CENTRAL, cerrar el hueco -----------------
+configure terminal
+ip access-list extended ACL-INTERNET-IN
+ no 5
+end
+show access-lists ACL-INTERNET-IN
+!
+! Alternativa sin tocar la ACL: en ISP ejecutar "show running-config"
+! y guardar la salida como configs/ISP.txt.

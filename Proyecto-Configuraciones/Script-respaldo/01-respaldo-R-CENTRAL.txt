@@ -1,0 +1,22 @@
+! ==================================================================
+! Script de respaldo de configuracion - R-CENTRAL
+! Router de borde (ISR4331)
+! Proyecto ACSERE-2026 - Redes I Grupo II
+! Servidor TFTP: SRV-FTP-TFTP 172.16.4.73 (Services > TFTP = On)
+! Alcance al servidor: Directo por OSPF hacia la Central (G0/0/1 -> MLS-CORE1)
+!
+! Uso: entrar a R-CENTRAL > CLI, escribir "enable" (clave: class) y pegar
+! TODO lo que esta debajo de la linea "INICIO". Debe pegarse en modo
+! privilegiado (R-CENTRAL#), no en modo configuracion.
+! Las lineas que siguen a cada "copy" son las respuestas a las
+! preguntas del IOS (direccion del servidor y nombre del archivo).
+! ==================================================================
+! ---------------------------- INICIO ------------------------------
+ping 172.16.4.73
+write memory
+copy running-config tftp:
+172.16.4.73
+R-CENTRAL-confg
+copy startup-config tftp:
+172.16.4.73
+R-CENTRAL-startup-confg
