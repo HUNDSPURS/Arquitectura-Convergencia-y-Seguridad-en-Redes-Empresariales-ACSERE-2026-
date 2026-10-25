@@ -1,6 +1,3 @@
-# Arquitectura-Convergencia-y-Seguridad-en-Redes-Empresariales-ACSERE-2026-
-Este proyecto se basa en Diseñar, configurar, implementar, probar, optimizar y diagnosticar una infraestructura de red corporativa convergente, altamente segura y escalable para una organización multiservicio, integrando de manera práctica los fundamentos teóricos y técnicos de Redes de Computadoras I.
-
 # Arquitectura, Convergencia y Seguridad en Redes Empresariales (ACSERE-2026)
 
 Proyecto final del curso **Redes de Computadoras I**. Diseñamos, configuramos, probamos y documentamos en **Cisco Packet Tracer** la red corporativa convergente de una organización multiservicio con una sede Central y dos sucursales (Norte y Sur). La red integra segmentación por VLAN, redundancia en capa 2 y 3, enrutamiento dinámico, servicios de red, Wi‑Fi para invitados y controles de seguridad.
@@ -13,7 +10,7 @@ Proyecto final del curso **Redes de Computadoras I**. Diseñamos, configuramos, 
 |---|---|---|
 | Kevin Esteban Quinteros Quiñonez | 9989-23-17397 | Ingeniero de conmutación (capa 2) |
 | Jose Pablo Valdez de León | 9989-23-85 | Ingeniero de servicios y seguridad |
-| Dulce María Morales Ramírez | 9989 - 23-18927 | Ingeniera de enrutamiento y WAN (capa 3) |
+| Dulce María Morales Ramírez | 9989-23-18927 | Ingeniera de enrutamiento y WAN (capa 3) |
 | Diego Alejandro Morales Flores | 9989-23-13177 | Líder de proyecto y arquitecto de red |
 
 - **Curso:** Redes de Computadoras I, Grupo II
