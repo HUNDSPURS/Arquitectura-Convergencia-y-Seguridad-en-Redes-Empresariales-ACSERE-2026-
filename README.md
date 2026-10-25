@@ -22,8 +22,6 @@ Proyecto final del curso **Redes de Computadoras I**. Diseñamos, configuramos, 
 
 ## Topología
 
-> Para que la imagen aparezca, exporta una captura del `.pkt` y súbela como `docs/topologia.png`.
-
 Topología **híbrida jerárquica**:
 
 - **Sede Central:** núcleo colapsado con dos switches multicapa (MLS-CORE1 y MLS-CORE2, Catalyst 3650) unidos por un EtherChannel LACP. Seis switches de acceso 2960 forman una **malla parcial**, porque cada uno se conecta a los dos núcleos. R-CENTRAL (ISR4331) es el router de borde hacia el ISP.
